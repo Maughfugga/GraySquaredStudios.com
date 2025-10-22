@@ -1,0 +1,32 @@
+{
+  "name": "gray-squared-studios",
+  "version": "1.0.0",
+  "description": "Gray Squared Studios - Creative media agency website",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "watch": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "dev:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "website",
+    "creative-agency",
+    "web-development"
+  ],
+  "author": "Gray Squared Studios",
+  "license": "MIT",
+  "dependencies": {
+    "resend": "^3.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  }
+}
