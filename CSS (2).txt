@@ -1,0 +1,4 @@
+
+
+mkdir my-tailwind-project
+cd my-tailwind-project

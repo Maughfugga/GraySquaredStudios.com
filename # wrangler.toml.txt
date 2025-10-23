@@ -1,0 +1,13 @@
+# wrangler.toml
+name = "gray-squared-studios"
+type = "javascript"
+
+# Cloudflare account and domain routing
+account_id = "<YOUR_CLOUDFLARE_ACCOUNT_ID>"
+workers_dev = false
+
+# Route to map to your domain (adjust as needed)
+route = "graysquaredstudios.com/*"
+zone_id = "<YOUR_ZONE_ID>"
+
+# If you want to serve via a single Worker (no bucket)

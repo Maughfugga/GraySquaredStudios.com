@@ -1,0 +1,100 @@
+// index.js
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
+
+const html = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>GraySquaredStudios</title>
+  <style>
+    :root{--bg:#0b0f14;--fg:#f6f7fb;--brand:#4A90E2;--grad:linear-gradient(#87CEEB 0%, #87CEEB 40%, #2ECC71 60%, #2ECC71 100%);}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif}
+    header{padding:1rem;background:#0f0f0f;border-bottom:1px solid #222}
+    .container{max-width:1100px;margin:0 auto;padding:0 1rem}
+    #hero{padding:2.5rem 0;background:var(--grad)}
+    section{padding:2rem 0;border-top:1px solid #1a1a1a}
+    h2{margin:0 0 .75rem}
+    .btn{background:#333;border:1px solid #444;color:#fff;padding:.75rem 1rem;border-radius:.25rem;text-decoration:none}
+    .btn-primary{background:var(--brand)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;gap:1rem;justify-content:space-between;align-items:center">
+      <div class="logo" aria-label="GraySquaredStudios">GraySquaredStudios</div>
+      <nav aria-label="Main">
+        <a href="#about" style="color:#fff;margin-right:.5rem;text-decoration:none">About</a>
+        <a href="#services" style="color:#fff;margin-right:.5rem;text-decoration:none">Services</a>
+        <a href="#work" style="color:#fff;margin-right:.5rem;text-decoration:none">Work</a>
+        <a href="#contact" style="color:#fff;text-decoration:none">Get In Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" aria-label="Intro">
+    <div class="container" style="text-align:left">
+      <h1 style="margin:.25rem 0 0">GraySquaredStudios</h1>
+      <p style="margin:.5rem 0 1rem">Creative engineering for a digital world — video production, website design, branding.</p>
+      <a href="#contact" class="btn btn-primary" aria-label="Get Started">Get Started</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="about" aria-label="About">
+      <h2>About GraySquaredStudios</h2>
+      <p>We craft audio/visual content, websites, branding, and social media management from Little Rock, Arkansas.</p>
+    </section>
+
+    <section id="services" aria-label="Services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Audio/Visual Production</li>
+        <li>Website Design</li>
+        <li>Social Media Management</li>
+        <li>Branding & Identity</li>
+      </ul>
+    </section>
+
+    <section id="work" aria-label="Work">
+      <h2>Our Work</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+        <div class="card" style="background:#1a1a1a;border:1px solid #333;padding:1rem;border-radius:.5rem">Brand Documentary</div>
+        <div class="card" style="background:#1a1a1a;border:1px solid #333;padding:1rem;border-radius:.5rem">Product Launch Video</div>
+      </div>
+    </section>
+
+    <section id="contact" aria-label="Contact">
+      <h2>Get In Touch</h2>
+      <form id="contact-form" autocomplete="on" onsubmit="return false;">
+        <label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required/>
+        <label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required/>
+        <label for="message">Message</label><textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-primary" onclick="sendEmail()">Send Message</button>
+      </form>
+      <p style="margin-top:.5rem">Or email: <a href="mailto:jgry4981@gmail.com" style="color:#9bd0ff">jgry4981@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer class="container" style="padding:1rem 0 2rem;color:#aaa">© 2025 GraySquaredStudios. All rights reserved.</footer>
+
+  <script>
+    function sendEmail(){
+      var name = document.getElementById('name').value || '';
+      var email = document.getElementById('email').value || '';
+      var message = document.getElementById('message').value || '';
+      var subject = encodeURIComponent('Website inquiry from ' + (name || email));
+      var body = encodeURIComponent('Name: ' + name + '\\nEmail: ' + email + '\\n\\nMessage:\\n' + message);
+      window.location.href = 'mailto:jgry4981@gmail.com?subject=' + subject + '&body=' + body;
+    }
+  </script>
+</body>
+</html>`;
+
+async function handleRequest(request) {
+  return new Response(html, {
+    headers: { 'content-type': 'text/html; charset=UTF-8' },
+  });
+}

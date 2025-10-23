@@ -1,0 +1,9 @@
+ {
+    "A": {
+      "hostname": "graysquaredstudios.com",
+      "record": "34.111.179.208"
+    },
+    "TXT": {
+      "hostname": "graysquaredstudios.com",
+      "record": "replit-verify=151b0fd2-100c-4f18-8ad0-a16eb2d1771b"
+    }
