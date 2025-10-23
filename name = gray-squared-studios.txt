@@ -1,0 +1,19 @@
+name = "gray-squared-studios"
+main = "index.js"
+compatibility_date = "2025-10-23"
+
+[env.production]
+workers_dev = false
+```
+
+### 2. Make sure your project structure looks like this:
+```
+your-project/
+├── index.js          (your main worker file - you have this ✅)
+├── wrangler.toml     (configuration - needs to be created/updated)
+└── package.json      (you fixed this already ✅)
+# Create the wrangler.toml file with the content above
+# Then:
+git add wrangler.toml
+git commit -m "Add wrangler configuration"
+git push origin main
